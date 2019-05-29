@@ -2,7 +2,7 @@
 para tener una beca este año, el promedio mínimo que necesita es 8, el programa recibirá un arreglo de 
 calificaciones para poder calcular el resultado*/
 
-let calificaciones = [0,0,0,0,0,0,0,0];
+let calificaciones = [8,8,8,8,8,8,8,8];
 let promedio = 0;
 
 for(let i = 0; i < calificaciones.length; i++){
