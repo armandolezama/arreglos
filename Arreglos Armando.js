@@ -54,8 +54,9 @@ function listaDeAsistencias(){
 
     for(i = 0; i < cantidadDeAsistencias; i++){
         let asistEval = prompt(`El día número ${(i + 1)} ¿fuiste a la escuela? escribe "Sí" o "No"`).toLowerCase();
+
         while(asistEval != "si" && asistEval != "sí" && asistEval != "no"){
-            asistEval = parseInt(prompt("Lo siento, por ahora sólo entiendo el si o el no"))
+            asistEval = prompt("Lo siento, por ahora sólo entiendo el si o el no").toLocaleLowerCase()
         }
         if(asistEval == "si" || asistEval == "Sí"){
             asistencias.push(true)
@@ -77,8 +78,8 @@ function listaDeAsistencias(){
             faltas += 1;
         };
     };
-    console.log(`Tu porcentaje de asistencias es ${(asististe/asistencias.length)*100}, 
-    y tu porcentaje de faltas es ${(faltas/asistencias.length)*100}`)
+    console.log(`Tu porcentaje de asistencias es ${((asististe/asistencias.length)*100).toFixed(2)}, 
+    y tu porcentaje de faltas es ${((faltas/asistencias.length)*100).toFixed(2)}`)
 
 }
 
