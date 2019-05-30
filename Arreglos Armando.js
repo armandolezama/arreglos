@@ -3,7 +3,24 @@ para tener una beca este año, el promedio mínimo que necesita es 8, el program
 calificaciones para poder calcular el resultado*/
 
 function promedio(){
-    let calificaciones = [8,8,8,8,8,8,8,8];
+
+    let cantidadDeCalificaciones = parseInt(prompt("¿Cuántas calificaciones tienes?"))
+
+    while(isNaN(cantidadDeCalificaciones)){
+        cantidadDeCalificaciones = parseInt(prompt("Eso no es un número, por favor, introduce uno válido"))
+    }
+    let calificaciones = [];
+    //Terminar bucle for
+    for(i = 0; i < cantidadDeCalificaciones; i++){
+        let califEval = parseFloat(prompt(`¿Cuánto sacaste en tu examen número ${i+1}`))
+        while(isNaN(califEval) || califEval < 0 || califEval > 10){
+            califEval = parseFloat(prompt("Lo siento, tienes que ingresar un número (no letras) entre el 0 y el 10 para continuar"))
+        }
+    calificaciones.push(califEval);
+
+    }
+
+
     let promedio = 0;
 
     for(let i = 0; i < calificaciones.length; i++){
@@ -36,7 +53,7 @@ function listaDeAsistencias(){
     let asistencias = [];
 
     for(i = 0; i < cantidadDeAsistencias; i++){
-        let asistEval = prompt(`El día número ${(i + 1)} ¿fuiste a la escuela? escribe "Sí" o "No"`).toLowerCase;
+        let asistEval = prompt(`El día número ${(i + 1)} ¿fuiste a la escuela? escribe "Sí" o "No"`).toLowerCase();
         while(asistEval != "si" && asistEval != "sí" && asistEval != "no"){
             asistEval = parseInt(prompt("Lo siento, por ahora sólo entiendo el si o el no"))
         }
@@ -79,9 +96,9 @@ function examenes(){
     let reprobados  = 0;
     let aprobados = 0;
     for(i = 0; i < cantidadDeExamenes; i++){
-        let califEval = parseInt(prompt(`¿Cuánto sacaste en tu examen número ${(i + 1)}`))
+        let califEval = parseFloat(prompt(`¿Cuánto sacaste en tu examen número ${(i + 1)}`))
         while(isNaN(califEval) || califEval < 0 || califEval > 10){
-            califEval = parseInt(prompt("Lo siento, tienes que ingresar un número (no letras) entre el 0 y el 10 para continuar"))
+            califEval = parseFloat(prompt("Lo siento, tienes que ingresar un número (no letras) entre el 0 y el 10 para continuar"))
         }
         examenes.push(califEval)
     }
