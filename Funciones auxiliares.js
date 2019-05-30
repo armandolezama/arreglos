@@ -1,6 +1,6 @@
-function lasCalificaciones(){
+function lasCalificaciones(nombre){
 
-    let cantidadDeCalificaciones = parseInt(prompt("¿Cuántas calificaciones tienes?"))
+    let cantidadDeCalificaciones = parseInt(prompt(`¿Cuántas calificaciones tiene ${nombre}`))
 
     while(isNaN(cantidadDeCalificaciones)){
         cantidadDeCalificaciones = parseInt(prompt("Eso no es un número, por favor, introduce uno válido"))
@@ -22,17 +22,24 @@ function lasCalificaciones(){
 
 function elPromedio(calificaciones){
     let promedio = 0;
-
+    
     for(let i = 0; i < calificaciones.length; i++){
         promedio += calificaciones[i];
     }
 
-    promedio = promedio/calificaciones.length
-    if(promedio >= 8){
-        console.log(`Felicidades! tu promedio es ${promedio}, tienes tu beca`);
-    } else {
-        console.log(`Lo siento, tu promedio es ${promedio}, no tendrás tu beca`);
-    }
+    promedio = promedio/calificaciones.length;
+    return promedio;
 
 }
 
+function apruebaONo(promedio){
+    let pruebaDeFuego = "";
+    if(promedio >= 6){
+        pruebaDeFuego = "Aprobado";
+    } else if(promedio < 6){
+        pruebaDeFuego = "Reprobado";
+    } else{
+        alert("Error en la decisión de aprobar")
+    }
+    return pruebaDeFuego;
+}
