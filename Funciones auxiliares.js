@@ -8,7 +8,7 @@ function lasCalificaciones(nombre){
     let calificaciones = [];
     //Terminar bucle for
     for(i = 0; i < cantidadDeCalificaciones; i++){
-        let califEval = parseFloat(prompt(`¿Cuánto sacaste en tu examen número ${i+1}`))
+        let califEval = parseFloat(prompt(`¿Cuánto sacó ${nombre} en su examen número ${i+1}`))
         while(isNaN(califEval) || califEval < 0 || califEval > 10){
             califEval = parseFloat(prompt("Lo siento, tienes que ingresar un número (no letras) entre el 0 y el 10 para continuar"))
         }
