@@ -47,7 +47,7 @@ function alumnos(){
     }
 
     if (reprobados.length>0){
-        console.log(reprobados)
+        console.log("Los alumnos que reprobaron fueron " + reprobados)
     } else {
         console.log("Ningún alumno reprobado")
     }
