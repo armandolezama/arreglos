@@ -50,12 +50,6 @@ function alumnos(){
 function joelCalif() {
     
     let alumnos = []
-   
-    let cantidadDeAlumnos = parseInt(prompt("¿Cuántos alumnos tienes?"));
- 
-    while(isNaN(cantidadDeAlumnos)){
-        cantidadDeAlumnos = parseInt(prompt("Lo siento, necesitas insertar un número para indicar la cantidad de alumnos"));
-    }
 
     let cantidadMaterias = parseInt(prompt("¿Cuántas materias impartes?"));
 
@@ -69,6 +63,12 @@ function joelCalif() {
         todasLasMaterias.push(prompt(`¿Cómo se llama la materia número ${i + 1}`));
     }
 
+    let cantidadDeAlumnos = parseInt(prompt("¿Cuántos alumnos tienes?"));
+ 
+    while(isNaN(cantidadDeAlumnos)){
+        cantidadDeAlumnos = parseInt(prompt("Lo siento, necesitas insertar un número para indicar la cantidad de alumnos"));
+    }
+
     for(let i = 0; i < cantidadDeAlumnos; i++){
  
         let estudiante = {};
@@ -77,16 +77,37 @@ function joelCalif() {
         let esCalif = [];
 
         for(let cont = 0;cont < todasLasMaterias.length; cont++ ){
-            esCalif.push(todasLasMaterias[cont], [evaluaciones[cont]])
+            esCalif.push([todasLasMaterias[cont], evaluaciones[cont]])
         }
 
         estudiante.nombre = nombre;
         estudiante.calificaciones = esCalif;
 
-       alumnos.push(estudiante)
+        alumnos.push(estudiante.nombre, estudiante.calificaciones)
    }
 
+let reprobaron = [];
 
-   console.log(alumnos)
+   for(let i = 0; i < alumnos.length; i++){
+    let tronadas = [];
+        for(let j = 0; j < todasLasMaterias.length; j++){
+            if(alumnos[i].calificaciones[j][1] < 6){
+                tronadas.push(alumnos[i].calificaciones[j][0]);
+            }
+        }
+        
+        if(tronadas.length > 0){
+            reprobaron.push([alumnos[i].nombre, tronadas]);
+        }
+        
+   }
+
+   console.log(alumnos);
+
+   if(reprobaron.length>0){
+    console.log(reprobaron);
+   } else {
+       console.log("Nadie reprobó")
+   }
 
 }
